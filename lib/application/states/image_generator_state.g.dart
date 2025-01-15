@@ -8,7 +8,9 @@ part of 'image_generator_state.dart';
 
 String _$imageGeneratorHash() => r'52d955dfbdcd51b935d2906176f7ca7308430381';
 
-/// See also [ImageGenerator].
+/// 画像生成アプリケーションの状態を管理するプロバイダー。
+///
+/// Copied from [ImageGenerator].
 @ProviderFor(ImageGenerator)
 final imageGeneratorProvider = AutoDisposeNotifierProvider<ImageGenerator,
     AsyncValue<ImageGeneratorState>>.internal(

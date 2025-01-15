@@ -6,6 +6,6 @@ abstract class ImageRepository {
   ///
   /// [prompt] 画像生成に使用するプロンプト。
   ///
-  /// 生成に成功した場合は画像のURLを、失敗した場合は null を返す。
-  Future<String?> generateImage(ImagePrompt prompt);
+  /// 画像生成に失敗した場合は例外をスローする。
+  Future<String> generateImage(ImagePrompt prompt);
 }

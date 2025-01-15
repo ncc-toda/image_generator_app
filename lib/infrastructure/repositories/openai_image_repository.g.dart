@@ -6,9 +6,11 @@ part of 'openai_image_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$imageRepositoryHash() => r'87f431ce0543437054febe1d7c7bb68afe6640c9';
+String _$imageRepositoryHash() => r'd948696a84187ea3555bf627d5f93fdc8efc207d';
 
-/// See also [imageRepository].
+/// OpenAIの画像生成APIを使用するためのリポジトリプロバイダー。
+///
+/// Copied from [imageRepository].
 @ProviderFor(imageRepository)
 final imageRepositoryProvider = AutoDisposeProvider<ImageRepository>.internal(
   imageRepository,

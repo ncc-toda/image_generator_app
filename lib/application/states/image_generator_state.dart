@@ -46,14 +46,22 @@ class ImageGenerator extends _$ImageGenerator {
   /// 指定された名詞と選択された形容詞を使用して画像を生成する。
   ///
   /// [noun] 画像生成に使用する名詞。
+  ///
+  /// 画像生成に失敗した場合はエラー状態になる。
   Future<void> generateImage(String noun) async {
-    if (state.value?.selectedAdjective == null) return;
+    // 現在の状態を保存
+    final currentState = state.value;
+    final selectedAdjective = currentState?.selectedAdjective;
+
+    if (selectedAdjective == null) {
+      return;
+    }
 
     state = const AsyncValue.loading();
 
     try {
       final prompt = ImagePrompt(
-        adjective: state.value!.selectedAdjective!,
+        adjective: selectedAdjective, // 保存した値を使用
         noun: noun,
       );
 
@@ -61,7 +69,7 @@ class ImageGenerator extends _$ImageGenerator {
           await ref.read(imageRepositoryProvider).generateImage(prompt);
 
       state = AsyncValue.data(ImageGeneratorState(
-        selectedAdjective: state.value!.selectedAdjective,
+        selectedAdjective: selectedAdjective, // 保存した値を使用
         generatedImageUrl: imageUrl,
       ));
     } catch (e, st) {
