@@ -1,12 +1,12 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'presentation/pages/image_generator_page.dart';
 
 void main() {
   runApp(
-    DevicePreview(
-      enabled: kIsWeb,
-      builder: (context) => const MainApp(), // Wrap your app
+    const ProviderScope(
+      child: MainApp(),
     ),
   );
 }
@@ -16,12 +16,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
+      home: const ImageGeneratorPage(),
     );
   }
 }
