@@ -26,6 +26,9 @@ dependencies:
   # Cached network image.
   cached_network_image:
 
+  # Local DB.
+  shared_preferences_android: '2.4.0'
+
   # HTTP.
   http:
 
