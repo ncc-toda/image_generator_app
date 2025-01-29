@@ -44,3 +44,5 @@ app.*.map.json
 
 # node modules
 /genkit/node_modules/
+
+.env
