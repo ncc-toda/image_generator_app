@@ -2,30 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'presentation/pages/image_generator_page.dart';
+import 'presentation/routes/app_router.dart';
 
 Future<void> main() async {
-  // .envファイルを読み込む
-  await dotenv.load(fileName: ".env");
+  await dotenv.load();
 
   runApp(
-    const ProviderScope(
-      child: MainApp(),
+    ProviderScope(
+      child: MyApp(),
     ),
   );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: _appRouter.config(),
+      title: 'AI画像ジェネレーター',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: const ImageGeneratorPage(),
     );
   }
 }

@@ -27,10 +27,13 @@ dependencies:
   cached_network_image:
 
   # Local DB.
-  shared_preferences_android: '2.4.0'
+  shared_preferences_android: "2.4.0"
 
   # HTTP.
   http:
+
+  # AutoRoute.
+  auto_route: ^7.8.4
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +44,9 @@ dev_dependencies:
   custom_lint:
   riverpod_generator:
   riverpod_lint:
+
+  # AutoRoute.
+  auto_route_generator: ^7.3.2
 
 flutter:
   uses-material-design: true
